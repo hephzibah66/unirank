@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="com.stn.unirank.dao.UniversityMapper">
+    <insert id="insertUniversity" parameterType="com.stn.unirank.dto.UniversityDto">
+    	INSERT INTO UNIVERSITY VALUES (#{ countryId }, #{ universityName }) 
+    </insert>
+    
+    <update id="updateUniversity" parameterType="com.stn.unirank.dto.UniversityDto">
+        UPDATE UNIVERSITY 
+        SET COUNTRY_ID = #{countryId}, UNIVERSITY_NAME = #{universityName}
+        WHERE ID = #{id}
+    </update>
+    
+    <delete id="deleteUniversity" parameterType="string">
+        DELETE FROM UNIVERSITY_NAME WHERE ID = #{id}
+    </delete>
+    
+    <select id="selectOneUniversity" parameterType="string" resultType="com.stn.unirank.dto.UniversityDto">
+        SELECT ID, COUNTRY_ID,UNIVERSITY_NAME FOROM  UNIVERSITY WHERE ID = #{id}
+    </select>
+    
+    <select id="selectAllUniversityList" resultType="com.stn.unirank.dto.UniversityDto">
+       SELECT ID, COUNTRY_ID,UNIVERSITY_NAME FROM  UNIVERSITY
+    </select>
+</mapper>

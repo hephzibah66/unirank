@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="com.stn.unirank.dao.KoreaUniversityMapper">
+
+    <select id="selectKoreaUniversityList" resultType="com.stn.unirank.dto.KoreaUniversityDto">
+       SELECT 
+       			ID, 
+		       	KOREAN_NAME, 
+		       	ENGLISH_NAME, 
+		       	HOME_PAGE_URL, 
+		       	LOGO_URL, 
+		       	INDEX_RANK 
+		FROM   	
+				KOREAN_UNIVERSITY 
+    </select>
+</mapper>
